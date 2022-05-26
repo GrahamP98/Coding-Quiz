@@ -25,21 +25,22 @@
     <main id="quizsec" class="ghost">
         <div>
             <section id="questions">
-                <h3 id="q-title">Questions</h3>
+                <h3 id="q-title"></h3>
             </section>
         </div>
         <div id="choices">
         </div>
     </main>
     <section id="endsec" class="ghost">
-        <h2>Enter Initials</h2>
-        <input type="text" />
-        <button id="submit">Submit</button>
+        <h2>Quiz over!</h2>
+        <h3>your score is <span id="userscore">0</span></h3>
+        <label for="initials-box">Insert initials:</label>
+        <input id=initials type="text" maxlength="3" name="initials-box">
+        <button id="submit" type="submit">Submit</button>
     </section>
 
 
     <script type="text/javascript" src="./script.js"></script>
-    <script type="text/javascript" src="./questions.js"></script>
 </body>
 
 </html>

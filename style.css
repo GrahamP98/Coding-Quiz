@@ -1,1 +1,18 @@
 /*  */
+body{
+    background-color: rgba(127, 255, 212, .6);
+    color: black;
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+}
+
+h1 {
+    text-align: center;
+}
+
+.ghost {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
