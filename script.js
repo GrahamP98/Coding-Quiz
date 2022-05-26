@@ -1,21 +1,22 @@
-// Quiz state variables
-var questionIndex = 0;
-
 // DOM referenced variables
-var startsecEl = document.querySelector("#startsec");
-var quizsecEl = document.querySelector("#quizsec");
-var endsecEl = document.querySelector("#endsec");
-var startBtn = document.querySelector("#startbtn");
-var submitBtn = document.querySelector("#submit")
-var questionsEl = document.querySelector("#questions");
-var choicesEl = document.querySelector("#choices");
-var initialsEl = document.querySelector("#initials");
+var currentTime = document.querySelector("#currentTime");
+var timer = document.querySelector("#startBtn");
+var wrapper = document.querySelector("#wrapper");
+var questionsDiv = document.querySelector("#questionsDiv");
+var highScore = document.querySelector("#highScore");
+var clear = document.querySelector("#clear");
+var goBack = document.querySelector("#goBack");
+
+// Declared Variables
+var deduction = 10;
+var questionIndex = 0;
+var score = 0;
+var secondsLeft = 76;
+var holdInterval = 0;
 
 
-// Timer specific variables
-var timeEl = document.querySelector("#time")
-var time = questionsEl.length * 15;
-var timerId;
+// Creates new unordered list
+var ulCreate = document.createElement("ul");
 
 // Questions for coding quiz with choices and correct answer.
 var questions = [
@@ -40,89 +41,163 @@ var questions = [
         answer: "String, Array"
     },
     {
-        question: "Media quiries need to be put on ____ of CSS page.",
-        choices: ["Top","Middle","Bottom","Anywhere, it doesnt matter"],
+        question: "Media quiries need to be put on the  ____ of the CSS page.",
+        choices: ["Top", "Middle", "Bottom", "Anywhere, it doesnt matter"],
         answer: "Bottom"
     }
 ]
 
-function quizStart() {
+// Timer specific variables
+var timeEl = document.querySelector("#time")
+var time = questions.length * 15;
+var timerId;
 
-    startsecEl.setAttribute("class", "ghost");
+timer.addEventListener("click", function () {
 
-    quizsecEl.setAttribute("class", "visible");
+    if (holdInterval === 0) {
+        holdInterval = setInterval(function () {
+            secondsLeft--;
+            currentTime.textContent = "Time: " + secondsLeft;
 
-    timerId = setInterval(tick, 1000);
-
-    timeEl.textContent = time;
-
-    getQuestion();
-}
-
-function tick() {
-    time--;
-    timeEl.textContent = time;
-
-    if (time <= 0) {
-        endQuiz();
+            if (secondsLeft <= 0) {
+                clearInterval(holdInterval);
+                gameOver();
+                currentTime.textContent = "Out of time!";
+            }
+        }, 1000);
     }
+    render(questionIndex);
+});
+function render(questionIndex) {
+
+    questionsDiv.innerHTML = "";
+    ulCreate.innerHTML = "";
+
+    for (var i = 0; i < questions.length; i++) {
+
+        var userQuestion = questions[questionIndex].title;
+        var userChoices = questions[questionIndex].choices;
+        questionsDiv.textContent = userQuestion;
+    }
+
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionsDiv.appendChild(ulCreate);
+        ulCreate.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
 }
 
-function getQuestion() {
-    var currentQuestion = questions[questionIndex];
+function compare(event) {
+    var element = event.target;
 
-    var titleEl = document.getElementById("q-title");
-    titleEl.textContent = currentQuestion.title;
+    if (element.matches("li")) {
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+        if (element.textContent == questions[questionIndex].answer) {
+            score++;
+            createDiv.textContent = "Correct!";
+        } else {
+            secondsLeft = secondsLeft - deduction;
+            createDiv.textContent = "Wrong!";
+        }
+    }
 
-    choicesEl.innerHTML = "";
+    questionIndex++;
 
-    currentQuestion.choices.forEach(function (choice, i) {
+    if (questionIndex >= questions.length) {
 
-        var choicebtns = document.createElement("button");
-        choicebtns.setAttribute("class", "choice");
-        choicebtns.setAttribute("value", choice);
+        gameOver();
+        createDiv.textContent = "Good Job!"
+    } else {
+        render(questionIndex);
+    }
+    questionsDiv.appendChild(createDiv);
+}
 
-        choicebtns.textContent = i + 1 + ". " + choice;
+function gameOver() {
+    questionsDiv.innerHTML = "";
+    currentTime.innerHTML = "";
 
-        choicebtns.onclick = questionClick;
+    var createH1 = document.createElement("h1");
+    createH1.setAttribute("id", "createH1");
+    createH1.textContent = "Quiz Over!"
 
-        choicesEl.appendChild(choicebtns);
+    questionsDiv.appendChild(createH1);
+
+
+    var createP = document.createElement("p");
+    createP.setAttribute("id", "createP");
+
+    questionsDiv.appendChild(createP);
+
+    if (secondsLeft >= 0) {
+        var timeLeft = secondsLeft;
+        var createP2 = document.createElement("p");
+        clearInterval(holdInterval);
+        createP.textContent = "Your score is: " + timeLeft;
+
+        questionsDiv.appendChild(createP2);
+    }
+
+    var createLabel = document.createElement("label");
+    createLabel.setAttribute("id", "createLabel");
+    createLabel.textContent = "Enter Your Initials: ";
+
+    questionsDiv.appendChild(createLabel);
+
+    var createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    createInput.setAttribute("id", "initials");
+    createInput.textContent = "";
+
+    questionsDiv.appendChild(createInput);
+
+    var createSubmit = document.createElement("button");
+    createSubmit.setAttribute("type", "submit");
+    createSubmit.setAttribute("id", "Submit");
+    createSubmit.textContent = "Submit"
+
+    questionsDiv.appendChild(createSubmit);
+
+    createSubmit.addEventListener("click", function () {
+        var initials = createInput.value;
+
+        if (initials === null) {
+
+            console.log("No initials entered!");
+
+        } else {
+            var userScore = {
+                initials: initials,
+                score: timeLeft
+            }
+            console.log(userScore);
+            var allScores = localStorage.getItem("allScores");
+            if (allScores === null) {
+                allScores = [];
+            } else {
+                allScores = JSON.parse(allScores);
+            }
+            allScores.push(userScore);
+            var newScore = JSON.stringify(allScores);
+            localStorage.setItem("allScores", newScore);
+
+        }
     });
 }
 
-function questionClick() {
+// clear.addEventListener("click", function () {
+//     localStorage.clear();
+//     location.reload();
+// });
 
-    if (this.value !== questions[questionIndex].answer) {
-       
-        time -= 15;
+// var allScores = localStorage.getItem("allScores");
+// allScores = JSON.parse(allScores);
 
-        if (time < 0) {
-            time = 0;
-        }
+// if (allScores !== null) {
+//     for (var i = 0; i < allScores.length; i++) {
 
-        timeEl.textContent = time;
-
-        questionIndex++;
-
-        if (questionIndex === questions.length) {
-            endQuiz();
-        } else {
-            getQuestion();
-        }
-    }
-}
- 
-function endQuiz() {
-
-    clearInterval(timerId);
-
-    var userendsecEl = document.querySelector("#endsec");
-    userendsecEl.setAttribute("class", "visible");
-
-    var userscoreEl = document.querySelector("#userscore");
-    userscoreEl.textContent = time;
-
-    quizsecEl.setAttribute("class", "ghost");
-}
-
-startBtn.onclick = quizStart;
+//     }
+// }

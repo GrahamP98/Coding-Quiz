@@ -10,36 +10,21 @@
 </head>
 
 <body>
-    <header>
-        <div id="timer">
-            Time: <span id="time">0</span>
-        </div>
-    </header>
-    <section id="startsec" class="visible">
-        <h1>Coding Quiz</h1>
-        <p>Hit the start button to begin the coding quiz! You will be scored on how much time
-            is left in the timer. Incorrect answers will remove 10 seconds off the timer. Good luck!
-        </p>
-        <button id="startbtn">Start</button>
-    </section>
-    <main id="quizsec" class="ghost">
-        <div>
-            <section id="questions">
-                <h3 id="q-title"></h3>
-            </section>
-        </div>
-        <div id="choices">
+    <main id="wrapper">
+        <!-- Timer -->
+        <div id="currentTime"></div>
+        <!-- Questions -->
+        <div id="questionsDiv">
+            <h1>Coding Quiz</h1>
+            <p>Hit the start button to begin the coding quiz! You will be scored on how much time
+                is left in the timer. Incorrect answers will remove 10 seconds off the timer. Good luck!
+            </p>
+            <!-- Choices -->
+            <ul id="choicesUl"></ul>
+            <button id="startBtn">Start</button>
         </div>
     </main>
-    <section id="endsec" class="ghost">
-        <h2>Quiz over!</h2>
-        <h3>your score is <span id="userscore">0</span></h3>
-        <label for="initials-box">Insert initials:</label>
-        <input id=initials type="text" maxlength="3" name="initials-box">
-        <button id="submit" type="submit">Submit</button>
-    </section>
-
-
+    <!-- javascript link -->
     <script type="text/javascript" src="./script.js"></script>
 </body>
 
