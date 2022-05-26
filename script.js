@@ -3,9 +3,7 @@ var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startBtn");
 var wrapper = document.querySelector("#wrapper");
 var questionsDiv = document.querySelector("#questionsDiv");
-// var highScore = document.querySelector("#highScore");
-// var clear = document.querySelector("#clear");
-// var goBack = document.querySelector("#goBack");
+
 
 // Declared Variables
 var deduction = 10;
@@ -75,7 +73,7 @@ function render(questionIndex) {
 
     for (var i = 0; i < questions.length; i++) {
 
-        var userQuestion = questions[questionIndex].title;
+        var userQuestion = questions[questionIndex].question;
         var userChoices = questions[questionIndex].choices;
         questionsDiv.textContent = userQuestion;
     }
@@ -183,21 +181,8 @@ function gameOver() {
             allScores.push(userScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
+            
 
         }
     });
 }
-
-// clear.addEventListener("click", function () {
-//     localStorage.clear();
-//     location.reload();
-// });
-
-// var allScores = localStorage.getItem("allScores");
-// allScores = JSON.parse(allScores);
-
-// if (allScores !== null) {
-//     for (var i = 0; i < allScores.length; i++) {
-
-//     }
-// }
