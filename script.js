@@ -3,9 +3,9 @@ var currentTime = document.querySelector("#currentTime");
 var timer = document.querySelector("#startBtn");
 var wrapper = document.querySelector("#wrapper");
 var questionsDiv = document.querySelector("#questionsDiv");
-var highScore = document.querySelector("#highScore");
-var clear = document.querySelector("#clear");
-var goBack = document.querySelector("#goBack");
+// var highScore = document.querySelector("#highScore");
+// var clear = document.querySelector("#clear");
+// var goBack = document.querySelector("#goBack");
 
 // Declared Variables
 var deduction = 10;
