@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coding Quiz</title>
     <link rel="stylesheet" href="./style.css">
+    <title>Coding Quiz</title>
 </head>
+
 <body>
-    
+    <header>
+        <div id="timer">
+            Time: <span id="time">0</span>
+        </div>
+    </header>
+    <section id="startsec" class="visible">
+        <h1>Coding Quiz</h1>
+        <p>Hit the start button to begin the coding quiz! You will be scored on how much time
+            is left in the timer. Incorrect answers will remove 10 seconds off the timer. Good luck!
+        </p>
+        <button id="startbtn">Start</button>
+    </section>
+    <main id="quizsec" class="ghost">
+        <div>
+            <section id="questions">
+                <h3 id="q-title">Questions</h3>
+            </section>
+        </div>
+        <div id="choices">
+        </div>
+    </main>
+    <section id="endsec" class="ghost">
+        <h2>Enter Initials</h2>
+        <input type="text" />
+        <button id="submit">Submit</button>
+    </section>
+
+
+    <script type="text/javascript" src="./script.js"></script>
+    <script type="text/javascript" src="./questions.js"></script>
 </body>
-<script src="./script.js"></script>
+
 </html>
