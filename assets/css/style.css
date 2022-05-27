@@ -23,7 +23,7 @@ li {
     background-color: burlywood;
     padding: 4px;
 }
-
+/* limit the max width for cosmetic  */
 main {
     max-width: 768px;
     margin: 0 auto;
