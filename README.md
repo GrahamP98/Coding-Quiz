@@ -23,7 +23,9 @@ To run the page simply click on the deployment URL [here](https://grahamp98.gith
 One page. click generate to run prompts. fill out the prompts to generate a password.
 
 ## Visuals
-![video of Coding Quiz](./assets/images/Coding-Quiz%20video.webm)
+
+https://user-images.githubusercontent.com/104460100/170605946-58126444-2d40-45a8-a62d-3d63e4aa37d4.mp4
+
 
 ## Resources
 
