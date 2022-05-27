@@ -8,12 +8,12 @@ body{
 h1 {
     text-align: center;
 }
-
+/* makes list have no bullet points */
 ul {
     list-style: none;
     
 }
-
+/* gives list items spacing, background and border color. */
 li {
     border: 3px solid goldenrod;
     margin-bottom: 3px;
