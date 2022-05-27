@@ -186,6 +186,7 @@ function gameOver() {
             allScores.push(userScore);
             var newScore = JSON.stringify(allScores);
             localStorage.setItem("allScores", newScore);
+            location.assign("./highscore.html")
         }
     });
 }

@@ -3,6 +3,7 @@ body{
     background-color: rgba(127, 255, 212, .6);
     color: black;
     text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
 }
 /* centers "coding quiz" */
 h1 {
@@ -11,11 +12,19 @@ h1 {
 /* makes list have no bullet points */
 ul {
     list-style: none;
-    
+    margin-left: 0px;
+    padding: 0px;
 }
 /* gives list items spacing, background and border color. */
 li {
     border: 3px solid goldenrod;
-    margin-bottom: 3px;
+    margin-bottom: 8px;
+    margin-left: 0px;
     background-color: burlywood;
+    padding: 4px;
+}
+
+main {
+    max-width: 768px;
+    margin: 0 auto;
 }
