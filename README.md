@@ -14,13 +14,13 @@
 
 
 ## Description
-This is a webpage that creates a random generated password. simply fill out the prompts and youll be issued a password.
+This is a webpage that tests your coding knowledge!
 
 ## Run
 To run the page simply click on the deployment URL [here](https://grahamp98.github.io/password-generator/). Also you can also click [here](https://github.com/GrahamP98/password-generator) to access the repository in github. The links are also listed in the [resources](#resources) section.
 
 ## Usage
-One page. click generate to run prompts. fill out the prompts to generate a password.
+Hit the start button to start the quiz. you will see if your answer is correct from the feedback located underneath the choices. incorrect answers will decrease time by 10 seconds. score is the time remaining. you can see any highscores stored on local drive using the highscores tab on top of page. there is a back button that takes you back to the orginal html page and a clear button to clear the highscores. 
 
 ## Visuals
 
