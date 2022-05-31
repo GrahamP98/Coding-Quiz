@@ -24,7 +24,11 @@ Hit the start button to start the quiz. you will see if your answer is correct f
 
 ## Visuals
 
-https://user-images.githubusercontent.com/104460100/170605946-58126444-2d40-45a8-a62d-3d63e4aa37d4.mp4
+![video of coding quiz](./assets/videos/Coding%20Quiz.mp4)
+![screenshot-1 of coding quiz](./assets/images/Coding-Quiz%20ss1.png)
+![screenshot-2 of coding quiz](./assets/images/Coding-Quiz%20ss2.png)
+![screenshot-3 of coding quiz](./assets/images/Coding-Quiz%20ss3.png)
+![screenshot-4 of highscores](./assets/images/Highscores%20ss4.png)
 
 
 ## Resources
