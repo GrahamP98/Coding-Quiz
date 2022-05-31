@@ -24,7 +24,7 @@ Hit the start button to start the quiz. you will see if your answer is correct f
 
 ## Visuals
 
-![video of coding quiz](./assets/videos/Coding%20Quiz.mp4)
+![video of coding quiz](./assets/videos/ezgif.com-gif-maker.gif)
 ![screenshot-1 of coding quiz](./assets/images/Coding-Quiz%20ss1.png)
 ![screenshot-2 of coding quiz](./assets/images/Coding-Quiz%20ss2.png)
 ![screenshot-3 of coding quiz](./assets/images/Coding-Quiz%20ss3.png)
